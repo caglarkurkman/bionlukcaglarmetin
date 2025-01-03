@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = () => {
@@ -57,10 +58,10 @@ const Footer = () => {
         <div className="text-left">
           <h3 className="font-bold mb-4">Kaynaklar</h3>
           <ul className="space-y-2">
-            <li><a href="#">Bloglarımız</a></li>
-            <li><a href="#">Kaynaklar</a></li>
-            <li><a href="#">Gizlilik Politikası</a></li>
-            <li><a href="#">Biz Kimiz</a></li>
+          <li><Link to="/bloglarimiz">Bloglarımız</Link></li>
+            <li><Link to="/kaynaklar">Kaynaklar</Link></li>
+            <li><Link to="/gizlilik">Gizlilik Politikası</Link></li>
+            <li><Link to="/bizkimiz">Biz Kimiz</Link></li>
           </ul>
         </div>
 
