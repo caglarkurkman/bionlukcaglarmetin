@@ -9,7 +9,7 @@ const Navbar = () => {
 
     return (
         <nav className="border-b">
-            {/* Üst Menü (Yeşil Alan) */}
+            {/* asdasdasdÜst Menü (Yeşil Alan) */}
             <div className="bg-green-700 text-white text-sm py-4 px-2">
                 <div className="container mx-auto flex justify-between items-center">
                     {/* Sol Menü */}
