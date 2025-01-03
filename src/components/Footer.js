@@ -1,5 +1,5 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import React from "react";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Sol Alan */}
         <div className="text-left">
           <p className="text-sm mb-4">
-            saasLorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+            Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
           </p>
           <div className="flex space-x-4">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
