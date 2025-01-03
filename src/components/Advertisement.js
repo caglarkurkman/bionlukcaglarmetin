@@ -7,7 +7,7 @@ const AdvertisementSection = () => (
         <div className="bg-gray-200 rounded-full w-16 h-16 flex-shrink-0"></div>
         <div>
           <p className="text-sm font-medium text-gray-700">Sponsorlu</p>
-          <p className="text-gray-600">Reklam içeriği buraya gelecek</p>
+          <p className="text-gray-600">Reklam içeriği buraya gelecek kanzi</p>
         </div>
       </div>
     </div>
