@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-8 px-6 mt-8 shadow-md">
+    <footer className="bg-white py-8 px-6 mt-[2rem] shadow-md">
       <div className="container mx-auto grid grid-cols-5 gap-4 text-gray-700">
         {/* Sol Alan */}
         <div className="text-left">

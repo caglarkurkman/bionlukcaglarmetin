@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Header = () => {
     const [activeLink, setActiveLink] = useState("Anasayfa");
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="border-b">
+        <nav className="border-b bg-white">
             <div className="bg-green-700 text-white text-sm py-4 px-2">
                 <div className="container mx-auto flex justify-between items-center">
                     {/* Sol Menü */}
@@ -149,4 +149,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Header;
