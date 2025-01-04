@@ -32,9 +32,9 @@ const IlanlarSlider = () => {
 
     return (
         <div>
-            <div className="p-4">
+            <div className="">
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-[2rem]">
                         <button
                             onClick={() => scrollLeft(sliderRef)}
                             className="w-[3rem] h-10 border-2 border-gray-300 bg-white text-gray-600 rounded-full flex items-center justify-center hover:bg-gray-200"
