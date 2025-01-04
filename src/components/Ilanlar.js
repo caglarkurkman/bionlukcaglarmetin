@@ -84,7 +84,8 @@ const IlanlarSlider = () => {
                         </button>
 
                         {/* Ürün Slider */}
-                        <div ref={sliderRef} className="flex gap-4 overflow-x-scroll scrollbar-hide w-full">
+                        <div ref={sliderRef} className="flex gap-4 overflow-x-auto w-full scrollbar-hide snap-x snap-mandatory">
+
                             {products.map((product) => (
                                 <div
                                     key={product.id}
