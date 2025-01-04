@@ -1,32 +1,59 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const [activeLink, setActiveLink] = useState("Anasayfa"); // Varsayılan olarak aktif link "Anasayfa"
+    const [activeLink, setActiveLink] = useState("Anasayfa");
+    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const menuItems = [
+        "Metal İşleme Makineleri",
+        "Tahta işleme Makineleri",
+        "İnşaat Makineleri",
+        "Forklift",
+        "Otomasyon teknolojisi",
+        "Makine teknolojisi",
+        "Tahrik / Konveynör teknolojisi",
+    ];
 
     const handleLinkClick = (link) => {
-        setActiveLink(link); // Tıklanan linki aktif yap
+        setActiveLink(link);
     };
+    const handleCategoryClick = (category) => {
+        navigate(`/categories`);
+        setIsOpen(false);
+    };
+
 
     return (
         <nav className="border-b">
-            {/* asdasdasdÜst Menü (Yeşil Alan) */}
             <div className="bg-green-700 text-white text-sm py-4 px-2">
                 <div className="container mx-auto flex justify-between items-center">
                     {/* Sol Menü */}
                     <ul className="flex space-x-6">
-                        {["Anasayfa", "Hakkımızda", "Hizmetlerimiz", "Mağazalar", "Markalar"].map((link, index) => (
+                        {[
+                            { name: "Anasayfa", path: "/" },
+                            { name: "Hakkımızda", path: "/about" },
+                            { name: "Hizmetlerimiz", path: "/services" },
+                            { name: "Mağazalar", path: "/stores" },
+                            { name: "Markalar", path: "/brands" },
+                        ].map((link, index) => (
                             <li key={index}>
-                                <a
-                                    href="#"
-                                    className={`${
-                                        activeLink === link
+                                <Link
+                                    to={link.path} // Link yönlendirmesi
+                                    className={`${activeLink === link.name
                                             ? "text-black px-2 py-1 rounded-md"
                                             : "text-white"
-                                    } hover:text-black`} // Aktifse siyah ve beyaz arka plan
-                                    onClick={() => handleLinkClick(link)} // Tıklanan linki aktif yap
+                                        } hover:text-black`}
+                                    onClick={() => handleLinkClick(link.name)} // Aktif linki belirle
                                 >
-                                    {link}
-                                </a>
+                                    {link.name}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -34,19 +61,20 @@ const Navbar = () => {
                     {/* Sağ Menü */}
                     <div className="flex items-center space-x-6">
                         {["Hakkımızda", "İade Politikası", "Yardım Merkezi", "Mağaza Aç"].map((link, index) => (
-                            <a
+                            <Link
                                 key={index}
-                                href="#"
-                                className={`${
-                                    activeLink === link
+                                to="/about"
+                                className={`${activeLink === link
                                         ? "text-black px-2 py-1 rounded-md"
                                         : "text-white"
-                                } hover:text-black`} // Aktifse siyah ve beyaz arka plan
-                                onClick={() => handleLinkClick(link)} // Tıklanan linki aktif yap
+                                    } hover:text-black`}
+                                onClick={() => handleLinkClick(link)}
                             >
                                 {link}
-                            </a>
+                            </Link>
                         ))}
+
+                        {/* Dil ve Para Birimi */}
                         <select className="bg-green-700 border-none text-white">
                             <option>ENG</option>
                             <option>TR</option>
@@ -91,12 +119,31 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Kategoriler Menüsü */}
-            <div className="container mx-auto border-t">
-                <div className="flex items-center space-x-2 px-4 mx-12 text-black font-medium border-x border-gray-300 py-2 w-40">
-                    <i className="fa-solid fa-table-cells"></i> {/* 4x4'e yakın bir ikon */}
+            <div className="container mx-auto border-t relative">
+                <div
+                    onClick={toggleDropdown}
+                    className="flex items-center space-x-2 px-4 mx-12 text-black font-medium border-x border-gray-300 py-2 w-[10rem] cursor-pointer hover:bg-gray-100"
+                >
+                    <i className="fa-solid fa-table-cells"></i>
                     <span>Kategoriler</span>
+                    <i className={`fa-solid fa-chevron-${isOpen ? "up" : "down"} ml-auto text-sm`}></i>
                 </div>
+
+                {isOpen && (
+                    <div className="absolute left-[3rem] bg-white border border-gray-300 mt-1 w-[15rem] rounded-md shadow-lg z-10">
+                        <ul className="py-2">
+                            {menuItems.map((item, index) => (
+                                <li
+                                    key={index}
+                                    onClick={() => handleCategoryClick(item.toLowerCase())}
+                                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                >
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </nav>
     );
